@@ -79,16 +79,16 @@ const App = () => {
     
    
     const [command, ...args] = inputText.trim().split(' ');
-    const com = outputText + '\n' + currentDirectory + ":$ " + command;
+    const com = outputText +'\n'+currentDirectory + ":$ " + command;
     setOutputText(com);
     switch (command) {
       case 'pwd':
-        setOutputText(prevOutput => prevOutput + `${currentDirectory}\n`);
+        setOutputText(prevOutput => prevOutput + `\n${currentDirectory}\n`);
         break;
       case 'boss':
       case '8055':
         const myName = 'Dinkar Dubey and Ghanshyam Patidar';
-        setOutputText(prevOutput => prevOutput + `${myName}\n`);
+        setOutputText(prevOutput => prevOutput + `\n${myName}\n`);
         break;
 
       case 'exit':
@@ -96,7 +96,9 @@ const App = () => {
 
         break;
       case 'cd':
+        
         try {
+          setOutputText(prevOutput=>prevOutput + ` ${args}\n`)
           let newPath;
           if (args.length === 0) {
             newPath = '/';
@@ -115,11 +117,11 @@ const App = () => {
             setCurrentDirectory(newPath);
           } else {
             setOutputText(
-              prevOutput => prevOutput + `Directory not found: ${args[0]}\n`,
+              prevOutput => prevOutput + `\nDirectory not found: ${args[0]}\n`,
             );
           }
         } catch (error) {
-          setOutputText(prevOutput => prevOutput + `Error: ${error.message}\n`);
+          setOutputText(prevOutput => prevOutput + `\nError: ${error.message}\n`);
         }
         break;
       case 'whoami':
@@ -127,10 +129,10 @@ const App = () => {
           // Get the username of the current device
           const deviceUsername = await DeviceInfo.getDeviceName();
           setOutputText(
-            prevOutput => prevOutput + `Device Username: ${deviceUsername}\n`,
+            prevOutput => prevOutput + `\nDevice Username: ${deviceUsername}\n`,
           );
         } catch (error) {
-          setOutputText(prevOutput => prevOutput + `Error: ${error.message}\n`);
+          setOutputText(prevOutput => prevOutput + `\nError: ${error.message}\n`);
         }
         break;
 
@@ -145,7 +147,7 @@ const App = () => {
           timeZoneName: 'short',
         };
         const formattedDate = new Date().toLocaleString('en-US', dateOptions);
-        setOutputText(prevOutput => prevOutput + `${formattedDate}\n`);
+        setOutputText(prevOutput => prevOutput + `\n${formattedDate}\n`);
         break;
 
       case 'mkdir':
@@ -287,7 +289,7 @@ const App = () => {
           }
           const filePath = `${currentDirectory}/${fileName}`;
           const fileContent = await RNFS.readFile(filePath);
-          setOutputText(prevOutput => prevOutput + `${fileContent}\n`);
+          setOutputText(prevOutput => prevOutput + `\n${fileContent}\n`);
         } catch (error) {
           setOutputText(prevOutput => prevOutput + `Error: ${error.message}\n`);
         }
@@ -313,7 +315,8 @@ const App = () => {
 
 
       case 'echo':
-        setOutputText(prevOutput => prevOutput + `${args.join(' ')}\n`);
+        setOutputText(prevOutput => prevOutput + ` ${args.join(' ')}\n`);
+        setOutputText(prevOutput => prevOutput + `\n${args.join(' ')}\n`);
         break;
 
       case 'clear':
@@ -324,7 +327,7 @@ const App = () => {
       case '--help':
       case 'help':
         setOutputText( prevOutput => prevOutput +
-          'Available Command:\n' +
+          '\nAvailable Command:\n' +
             `  append <filename> <content> Append content to a file\n` +
             `  cat <file_name>             Display file contents\n` +
             `  cd <directory>              Change directory\n` +
@@ -393,7 +396,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   outputText: {
-    color: '#81a1c1',
+    color: '#4682B4',
     fontFamily: 'monospace',
     fontSize:15,
   },
@@ -405,7 +408,7 @@ const styles = StyleSheet.create({
      marginBottom:30,
   },
   inputPrompt: {
-    color: '#a3be8c',
+    color: '#90EE90',
     fontFamily: 'monospace',
     marginRight: 5,
     fontSize:15,
@@ -414,7 +417,7 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize:18,
     minWidth:250,
-    color: '#ebcb8b',
+    color: '#FFD700',
     fontFamily: 'monospace',
     flexWrap:'wrap',
   },
@@ -424,7 +427,6 @@ const styles = StyleSheet.create({
      flexDirection:'row',
      justifyContent:'space-between',
     },
-
 });
 
 export default App;
