@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
+  "name": "AndroidCLI",
+  "displayName": "AndroidCLI"
+=======
   "name": "terminalOne",
   "displayName": "terminalOne"
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
 }

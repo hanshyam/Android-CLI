@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+rootProject.name = 'AndroidCLI'
+=======
 rootProject.name = 'terminalOne'
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
