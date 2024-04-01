@@ -1,20 +1,31 @@
+<<<<<<< HEAD
 import React, {useState, useEffect,useRef} from 'react';
 import {View, TextInput, Text, StyleSheet, ScrollView, Button,PermissionsAndroid,Linking ,BackHandler, Pressable} from 'react-native';
+=======
+import React, {useState, useEffect} from 'react';
+import {View, TextInput, Text, StyleSheet, ScrollView, Button,PermissionsAndroid,Linking ,BackHandler} from 'react-native';
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
 import RNFS from 'react-native-fs'; // Importing FileSystem module from React Native
 import FileViewer from 'react-native-file-viewer'; // Import FileViewer
 import SAF from 'react-native-saf-x';
 import DeviceInfo from 'react-native-device-info';
+<<<<<<< HEAD
 import { faCaretUp,faCaretDown,faCaretLeft,faCaretRight,faGear,faRightLeft,faMoon } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+=======
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
 
 const App = () => {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [currentDirectory, setCurrentDirectory] = useState(RNFS.ExternalDirectoryPath); // Default to external storage directory
+<<<<<<< HEAD
 
   const [commandHistory, setCommandHistory] = useState([]);
   const [index,setIndex] = useState(-1);
 
+=======
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
   
   // Function to request WRITE_EXTERNAL_STORAGE permission
   const requestStoragePermissions = async () => {
@@ -48,8 +59,12 @@ const App = () => {
     }
   };
   //command storing 
+<<<<<<< HEAD
   const Commands = ["append","cat","cd","clear","date","echo","exit","help","history","ls","mkdir","neofetch","open","pwd","rm","touch","whoami"];
 
+=======
+  const Commands = ["append","cat","cd","clear","date","echo","exit","help","ls","mkdir","neofetch","open","pwd","rm","touch","whoami"];
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
   // Call the permission request function when the component mounts
   useEffect(() => {
     requestStoragePermissions();
@@ -82,18 +97,31 @@ const App = () => {
   };
 
   const handleTextInputSubmit = async () => {
+<<<<<<< HEAD
     const [command, ...args] = inputText.trim().split(' ');
     const com = outputText +'\n'+currentDirectory + ":$ " + command;
 
     setOutputText(com);
     setCommandHistory(prevHistory => [...prevHistory, inputText]);
+=======
+    
+    
+   
+    const [command, ...args] = inputText.trim().split(' ');
+    const com = outputText +'\n'+currentDirectory + ":$ " + command;
+    setOutputText(com);
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     switch (command) {
       case 'pwd':
         setOutputText(prevOutput => prevOutput + `\n${currentDirectory}\n`);
         break;
       case 'boss':
       case '8055':
+<<<<<<< HEAD
         const myName = 'Dinkar Dubey';
+=======
+        const myName = 'Dinkar Dubey and Ghanshyam Patidar';
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
         setOutputText(prevOutput => prevOutput + `\n${myName}\n`);
         break;
 
@@ -322,7 +350,11 @@ const App = () => {
 
       case 'echo':
         setOutputText(prevOutput => prevOutput + ` ${args.join(' ')}\n`);
+<<<<<<< HEAD
         setOutputText(prevOutput => prevOutput + `${args.join(' ')}\n`);
+=======
+        setOutputText(prevOutput => prevOutput + `\n${args.join(' ')}\n`);
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
         break;
 
       case 'clear':
@@ -334,6 +366,7 @@ const App = () => {
       case 'help':
         setOutputText( prevOutput => prevOutput +
           '\nAvailable Command:\n' +
+<<<<<<< HEAD
             `  append    Append content to a file\n` +
             `  cat       Display file contents\n` +
             `  cd        Change directory\n` +
@@ -361,16 +394,41 @@ const App = () => {
           setOutputText(prevOutput => prevOutput + historyOutput + '\n');
           break;
 
+=======
+            `  append <filename> <content> Append content to a file\n` +
+            `  cat <file_name>             Display file contents\n` +
+            `  cd <directory>              Change directory\n` +
+            `  clear                       Clear the terminal output\n`+
+            `  date                        Print the current date and time\n` +
+            `  echo <message>              Print a message\n` +
+            `  exit                        Exits the app\n` +
+            `  --h, --help, help           Display this help message\n`+
+            `  ls                          List directory contents\n` +
+            `  mkdir <directory_name>      Create a new directory\n` +
+            `  open <file_name>            Open a file\n` +
+            `  pwd                         Print the current directory\n` +
+            `  rm <filename>               Remove a file\n` +
+            `  touch <file_name>           Create a new file\n` +
+            `  whoami                      Print the device username\n`, 
+        );
+        break;
+        
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
       default:
         setOutputText(
           prevOutput => prevOutput +'\n'+command+`: Command not found\n`,
         );
+<<<<<<< HEAD
         break;
     }
     
     let h = commandHistory.length;
     setIndex(h);
 
+=======
+    }
+    
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     setInputText('');
   };
 
@@ -385,10 +443,15 @@ const App = () => {
        <Text style={{color:'#a3be8c',fontWeight:'bold',fontSize:18}}>$: </Text>
        <TextInput
            value={inputText}
+<<<<<<< HEAD
+=======
+           
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
            onChangeText={handleTextInputChange}
           onSubmitEditing={handleTextInputSubmit}
           style={styles.textInput}
         />
+<<<<<<< HEAD
       </View>
     </ScrollView>
         <View style={styles.buttonContainer}>
@@ -437,6 +500,16 @@ const App = () => {
                 
             </View>
         </View>
+=======
+         </View>
+    </ScrollView>
+    <View style={styles.buttonContainer}>
+    <Button color={'black'} style={styles.buttons} title='        TAB        ' onPress={TabFunction}/>
+    <Button color={'black'} style={styles.buttons} title='          CLR       ' onPress={()=>setInputText('')} />
+    <Button color={'black'} style={styles.buttons} title='           /      ' onPress = {()=> setInputText(inputText => inputText+'/')}/>
+    <Button color={'black'} style={styles.buttons} title='          -         ' onPress = {()=> setInputText(inputText => inputText+'-')}/>
+    </View>
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     </View>
   );
 };
@@ -454,7 +527,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   outputText: {
+<<<<<<< HEAD
     color: '#81A1C1',
+=======
+    color: '#4682B4',
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     fontFamily: 'monospace',
     fontSize:15,
   },
@@ -466,7 +543,11 @@ const styles = StyleSheet.create({
      marginBottom:30,
   },
   inputPrompt: {
+<<<<<<< HEAD
     color: '#A3BE86',
+=======
+    color: '#90EE90',
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     fontFamily: 'monospace',
     marginRight: 5,
     fontSize:15,
@@ -475,11 +556,16 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize:18,
     minWidth:250,
+<<<<<<< HEAD
     color: '#EBCB8B',
+=======
+    color: '#FFD700',
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     fontFamily: 'monospace',
     flexWrap:'wrap',
   },
   buttonContainer:{
+<<<<<<< HEAD
    backgroundColor:'black',
    padding:10,
   },
@@ -489,8 +575,17 @@ const styles = StyleSheet.create({
      fontSize:20,
      flexDirection:'row',
      alignItems:'center',
+=======
+     paddingTop:10,
+     backgroundColor:'black',
+     flexDirection:'row',
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
      justifyContent:'space-between',
     },
 });
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76

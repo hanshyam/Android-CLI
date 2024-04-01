@@ -74,9 +74,15 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
+<<<<<<< HEAD
     namespace "com.androidcli"
     defaultConfig {
         applicationId "com.androidcli"
+=======
+    namespace "com.terminalone"
+    defaultConfig {
+        applicationId "com.terminalone"
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -106,7 +112,10 @@ android {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.release
+<<<<<<< HEAD
            // signingConfig signingConfigs.debug
+=======
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

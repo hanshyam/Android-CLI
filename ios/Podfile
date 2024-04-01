@@ -25,7 +25,11 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+<<<<<<< HEAD
 target 'AndroidCLI' do
+=======
+target 'terminalOne' do
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
   config = use_native_modules!
 
   use_react_native!(
@@ -39,7 +43,11 @@ target 'AndroidCLI' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+<<<<<<< HEAD
   target 'AndroidCLITests' do
+=======
+  target 'terminalOneTests' do
+>>>>>>> 652ec5130aa3eb0a5911e7b29b885f0ee73efa76
     inherit! :complete
     # Pods for testing
   end
